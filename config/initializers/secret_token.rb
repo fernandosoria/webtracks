@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Webtracks::Application.config.secret_key_base = '70c475d9c0333ef51d7b06d4a6f7686640a93405a827bbc892bf5ae43fc21d033e1c9ba895486db8b1afe21da3f55fa8a928dd581eb707c11dce56ccec69fb6a'
+Webtracks::Application.config.secret_key_base = 'd905d8582f7197d8dbaab3a63cb3304f50acd8e3ab42d8fa539620d798aa5048641099a91454386ba696ad84bb37bf94f65a8aa6753efbe86277418cc5815a1f'

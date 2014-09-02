@@ -1,0 +1,16 @@
+!!! 5
+%html
+  %head
+    %title WebTracks
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    .container
+      %ul.nav.nav-tabs
+        %li= link_to "Home", root_path
+        %li= link_to "About", about_path
+
+        .pull-right.user-info
+          Sign In or Sign Up
+      = yield
