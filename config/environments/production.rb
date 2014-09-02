@@ -77,4 +77,7 @@ Webtracks::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  #http://fernandosoria-webtracks.herokuapp.com/
+  config.action_mailer.default_url_options = {host: 'http://fernandosoria-webtracks.herokuapp.com/'}
 end

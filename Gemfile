@@ -9,6 +9,15 @@ gem 'bootstrap-sass', '~> 3.1.1'
 # Use HAML to generate HTML
 gem 'haml-rails'
 
+# Use Devise user authentication
+gem 'devise'
+
+# Use Figaro to configure values with sensitive information
+gem 'figaro'
+
+# Use Faker to auto generate fake data
+gem 'faker'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
