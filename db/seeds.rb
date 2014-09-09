@@ -21,5 +21,17 @@ member = User.create(
 member.skip_confirmation!
 member.save
 
+# Create Events
+50.times do
+  event = Event.create(
+    user: users.sample,
+    name: 'visit',
+    url: Faker::Internet.url,
+    created_on: rand(0..30).days.ago.to_date
+  )
+end
+events = Event.all
+
 puts "Seed finished"
 puts "#{User.count} users created"
+puts "#{Event.count} events created"

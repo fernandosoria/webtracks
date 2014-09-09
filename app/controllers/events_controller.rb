@@ -5,18 +5,35 @@ class EventsController < ApplicationController
   before_filter :cors_set_access_control_headers
 
   def index
-    @events = current_user.events.all
+    gon.events = current_user.events
+      .select('created_on as date, count(*) as count')
+      .where('created_on >= ?', 30.days.ago.to_date)
+      .group(:created_on)
+
+    @pages = current_user.events
+      .select('url as url, count(*) as count')
+      .where('created_on >= ?', 30.days.ago.to_date)
+      .group(:url)
+      .order('count(*) DESC')      
   end
 
   def create
-    @event = Event.new(name: params[:name])
-    @event.url = request.referer
-    @event.created_on = Date.today
+    full_url = request.referer
+    user_url = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}\//i.match(full_url)
 
-    if @event.save
-      render text: "Saved"
-    else
-      render text: "Error"
+    @user = User.find_by_url(user_url)
+
+    if @user
+      @event = Event.new(name: params[:name])
+      @event.url = full_url
+      @event.created_on = Date.today
+      @event.user = @user
+
+      if @event.save
+        render text: "Saved"
+      else
+        render text: "Error"
+      end
     end
   end
 

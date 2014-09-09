@@ -1,1 +1,17 @@
 %h1 Dashboard
+.row
+  .col-md-12
+    %h2 Visits
+    %canvas#pages-visited{'width' => 1150, 'height' => 350}
+.row
+  .col-md-12
+    %h2 Visits Per Page
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Page
+          %th Visits
+      - @pages.each do |page|
+        %tr
+          %td= (page.url).sub("#{current_user.url}", '/')
+          %td= page.count

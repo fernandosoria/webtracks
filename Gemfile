@@ -18,6 +18,12 @@ gem 'figaro'
 # Use Faker to auto generate fake data
 gem 'faker'
 
+# Use Gon to access data in javascript files
+gem 'gon'
+
+# Use Chart.js for Rails to generate charts
+gem 'chart-js-rails'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
