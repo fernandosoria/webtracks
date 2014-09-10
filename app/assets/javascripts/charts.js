@@ -1,4 +1,4 @@
-$('document').ready(function(){
+function _wt_chart(){
     var ctx = $("#pages-visited").get(0).getContext("2d");
 
     var event_counts = [];
@@ -8,8 +8,6 @@ $('document').ready(function(){
         event_counts[i] = v.count;
         event_dates[i] = (v.date).substring(0,10);
     });
-
-    console.log(event_dates);
 
     var data = {
         labels: event_dates,
@@ -68,4 +66,4 @@ $('document').ready(function(){
     };
 
     var myLineChart = new Chart(ctx).Line(data, options);
-});
+}

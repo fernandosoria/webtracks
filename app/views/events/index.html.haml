@@ -15,3 +15,6 @@
         %tr
           %td= (page.url).sub("#{current_user.url}", '/')
           %td= page.count
+= include_gon
+:javascript
+  _wt_chart();
