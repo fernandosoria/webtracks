@@ -9,6 +9,7 @@ class EventsController < ApplicationController
       .select('created_on as date, count(*) as count')
       .where('created_on >= ?', 30.days.ago.to_date)
       .group(:created_on)
+      .order(:created_on)
 
     @pages = current_user.events
       .select('url as url, count(*) as count')
@@ -19,7 +20,7 @@ class EventsController < ApplicationController
 
   def create
     full_url = request.referer
-    user_url = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}\//i.match(full_url)
+    user_url = /^((http|https):\/\/([a-z0-9]+[\-\.]{1}[a-z0-9]+*\.[a-z]{2,5}\/))/i.match(full_url)[1]
 
     @user = User.find_by_url(user_url)
 
