@@ -24,6 +24,9 @@ gem 'gon'
 # Use Chart.js for Rails to generate charts
 gem 'chart-js-rails'
 
+# Use New Relic for app performance monitoring
+gem 'newrelic_rpm'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
