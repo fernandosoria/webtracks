@@ -1,7 +1,15 @@
 %h1 About WebTracks
-%p WebTracks is an analytics service that allows users to track events on their websites with a simple Javascript snippet. Kinda like Google Analytics, but scaled down.
-%p WebTracks allows you to:
-%ul
-  %li Track events on your website with a client-side Javascript snippet.
-  %li Capture and save events.
-  %li Display the captured event data on your own personal dashboard.
+%p WebTracks is a Ruby on Rails web application that allows members to track daily visits to their website. Through the use of a public API, members can simply embed a JavaScript snippet on their website to begin tracking activity. Members can then login to their WebTracks account to view a dashboard which visually displays daily traffic and page visits.
+%h2 Want to try it out?
+%p If you are interested in test-driving WebTracks login using the following cedentials:
+%ul.list-unstyled
+  %li U: member@example.com
+  %li P: helloworld
+%p Or if you would like to track your own website, simply sign up for a free account. Next, login to WebTracks and add the domain you like to track under the "Profile" tab.  Once that is completed, add the following snippet of JavaScript to your website right before the closing body tag so that it appears on every page of your site:
+%pre
+  &lt;script type="text/javascript" src="http://fernandosoria-webtracks.herokuapp.com/assets/events.js"></script>
+  %br &lt;script type="text/javascript">
+  track();
+  %br &lt;/script> 
+%h2 Want to see more?
+%p If you are interested in or have any questions about my work, please visit my site at <a href="http://www.soriafernando.com/" target="_blank">www.soriafernando.com</a>.
